@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório semanal do funil de crédito</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.5;
+        }
+
+        h1, h2 {
+            color: #1f4e79;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .metric {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f4e79;
+            margin-top: 8px;
+        }
+
+        .data-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 16px 0 24px;
+        }
+
+        .data-table th,
+        .data-table td {
+            border-bottom: 1px solid #d1d5db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #e5e7eb;
+        }
+
+        img {
+            width: 100%;
+            max-width: 900px;
+            margin: 16px 0 30px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            padding: 14px;
+            border-left: 4px solid #d97706;
+        }
+
+        .recommendation {
+            background: #f8fafc;
+            padding: 14px;
+            margin: 12px 0;
+            border-left: 4px solid #1f4e79;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Relatório semanal do funil de crédito</h1>
+
+    <p>
+        Base analisada: propostas recebidas entre
+        2024-01 e 2025-12.
+        Registros com tipo de imóvel Terreno foram excluídos conforme o enunciado.
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            Propostas elegíveis
+            <span class="metric">5,865</span>
+        </div>
+
+        <div class="card">
+            Contratações
+            <span class="metric">1,128</span>
+        </div>
+
+        <div class="card">
+            Conversão geral
+            <span class="metric">19,2%</span>
+        </div>
+
+        <div class="card">
+            Valor contratado
+            <span class="metric">R$ 416.708.312,88</span>
+        </div>
+    </div>
+
+    <h2>Principais conclusões</h2>
+
+    <p>
+        O maior valor potencial perdido está em
+        <strong>Sem retorno</strong>:
+        R$ 575.142.452,76
+        distribuídos em 1,495 propostas.
+        Esta métrica usa valor solicitado como proxy de valor potencial,
+        pois a base não contém informação de margem ou receita.
+    </p>
+
+    <p>
+        O canal <strong>Correspondente</strong>
+        apresenta a menor conversão, de
+        13,7%.
+        A conversão geral é de 19,2%.
+        Isso confirma o sinal agregado da liderança, mas não prova que
+        o canal seja a causa do resultado: o perfil das propostas pode ser diferente.
+    </p>
+
+    <p>
+        Nos últimos três meses, a conversão foi de
+        17,6%, contra
+        18,2% nos três meses anteriores.
+        A variação é de -0.6%.
+        Há oscilação relevante, portanto a tendência deve ser acompanhada
+        antes de concluir uma queda estrutural.
+    </p>
+
+    <div class="warning">
+        Propostas acima de 60% de LTV representam
+        904 registros e têm conversão de
+        12,1%.
+        Essa faixa está acima da política interna descrita no desafio.
+    </div>
+
+    <h2>Características associadas à contratação</h2>
+
+    <p>
+        A conversão aumenta de 9,6%
+        para propostas com score abaixo de 600 para
+        36,8%
+        na faixa de score 800 ou mais. Score e LTV são associações
+        descritivas nesta análise, não estimativas causais.
+    </p>
+
+    <img src="conversao_por_score.png" alt="Conversão por faixa de score">
+    <img src="conversao_por_ltv.png" alt="Conversão por faixa de LTV">
+    <img src="conversao_por_canal.png" alt="Conversão por canal">
+    <img src="valor_perdido_por_status.png" alt="Valor potencial perdido por status">
+    <img src="conversao_mensal.png" alt="Conversão mensal">
+
+    <h2>Recomendações priorizadas</h2>
+
+    <div class="recommendation">
+        <strong>1. Criar uma triagem antecipada para LTV acima de 60%.</strong><br>
+        O grupo está fora da política e apresenta conversão inferior à média.
+        Ação proposta: verificar exceções e documentação antes de consumir
+        tempo de análise completa.
+    </div>
+
+    <div class="recommendation">
+        <strong>2. Abrir a análise de Correspondentes por parceiro e perfil.</strong><br>
+        O canal possui volume relevante e a menor conversão agregada.
+        Ação proposta: comparar parceiros por LTV, score, ticket e motivo de perda.
+    </div>
+
+    <div class="recommendation">
+        <strong>3. Criar uma cadência de retorno para propostas sem retorno e documentação pendente.</strong><br>
+        Esses status concentram grande valor solicitado.
+        Ação proposta: definir proprietário, prazo de contato e motivo padronizado
+        para encerramento.
+    </div>
+
+    <h2>Tabelas de apoio</h2>
+
+    <h3>Conversão por canal</h3>
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>canal_origem</th>
+      <th>propostas</th>
+      <th>contratadas</th>
+      <th>valor_solicitado</th>
+      <th>conversao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Correspondente</td>
+      <td>1627</td>
+      <td>223</td>
+      <td>634509727.49</td>
+      <td>0.137062</td>
+    </tr>
+    <tr>
+      <td>Organico</td>
+      <td>1273</td>
+      <td>255</td>
+      <td>494970317.65</td>
+      <td>0.200314</td>
+    </tr>
+    <tr>
+      <td>Mídia paga</td>
+      <td>1166</td>
+      <td>250</td>
+      <td>444202613.40</td>
+      <td>0.214408</td>
+    </tr>
+    <tr>
+      <td>Indicação</td>
+      <td>910</td>
+      <td>197</td>
+      <td>346545044.71</td>
+      <td>0.216484</td>
+    </tr>
+    <tr>
+      <td>Parceria</td>
+      <td>889</td>
+      <td>203</td>
+      <td>340931920.25</td>
+      <td>0.228346</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Perda potencial por status</h3>
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>status_final</th>
+      <th>propostas</th>
+      <th>valor_potencial_perdido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sem retorno</td>
+      <td>1495</td>
+      <td>575142452.76</td>
+    </tr>
+    <tr>
+      <td>Desistiu</td>
+      <td>1392</td>
+      <td>550645150.99</td>
+    </tr>
+    <tr>
+      <td>Reprovada crédito</td>
+      <td>844</td>
+      <td>325015801.18</td>
+    </tr>
+    <tr>
+      <td>Problema garantia</td>
+      <td>608</td>
+      <td>241081946.40</td>
+    </tr>
+    <tr>
+      <td>Documentação pendente</td>
+      <td>398</td>
+      <td>152565959.29</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Conversão por LTV</h3>
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>faixa_ltv</th>
+      <th>propostas</th>
+      <th>contratadas</th>
+      <th>conversao</th>
+      <th>valor_solicitado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Até 40%</td>
+      <td>1150</td>
+      <td>235</td>
+      <td>0.204348</td>
+      <td>309497102.48</td>
+    </tr>
+    <tr>
+      <td>40% a 50%</td>
+      <td>1959</td>
+      <td>451</td>
+      <td>0.230219</td>
+      <td>689298885.86</td>
+    </tr>
+    <tr>
+      <td>50% a 60%</td>
+      <td>1852</td>
+      <td>333</td>
+      <td>0.179806</td>
+      <td>793477149.19</td>
+    </tr>
+    <tr>
+      <td>Acima de 60%</td>
+      <td>904</td>
+      <td>109</td>
+      <td>0.120575</td>
+      <td>468886485.97</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Conversão por score</h3>
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>faixa_score</th>
+      <th>propostas</th>
+      <th>contratadas</th>
+      <th>conversao</th>
+      <th>valor_solicitado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Abaixo de 600</td>
+      <td>1060</td>
+      <td>102</td>
+      <td>0.096226</td>
+      <td>4.137315e+08</td>
+    </tr>
+    <tr>
+      <td>600 a 699</td>
+      <td>2779</td>
+      <td>481</td>
+      <td>0.173084</td>
+      <td>1.077977e+09</td>
+    </tr>
+    <tr>
+      <td>700 a 799</td>
+      <td>1765</td>
+      <td>449</td>
+      <td>0.254391</td>
+      <td>6.656162e+08</td>
+    </tr>
+    <tr>
+      <td>800 ou mais</td>
+      <td>261</td>
+      <td>96</td>
+      <td>0.367816</td>
+      <td>1.038346e+08</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
