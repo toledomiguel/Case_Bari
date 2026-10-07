@@ -1,0 +1,18 @@
+﻿tipo_imovel,endereco,area_privativa,area_total,area_terreno,area_construida,ano_construcao,valor_avaliacao,matricula,onus,data_vistoria,responsavel_tecnico,alertas,arquivo,status_extracao
+apartamento residencial,"Rua das Acácias, 145, ap. 82 - Vila Mariana, São Paulo/SP",default,default,,,default,default,184.772 do 14º CRI de São Paulo,,12/03/2025,Eng. Marina Albuquerque - CREA-SP 5061234567,[],laudo_01.txt,sucesso
+casa,,,,,neto,,neto,,,18/03/2025,Carlos Henrique Moura,"['Matrícula não informada', 'Certidão não informada']",laudo_02.txt,sucesso
+,,,,,"54,8 m²",,,77.201 - 5º Registro de Imóveis,alienação fiduciária em favor de instituição financeira,,Arq. Beatriz Nunes (CAU A987654-3),['Recomenda-se atualização da certidão de alienação fiduciária.'],laudo_03.txt,sucesso
+terreno urbano,"Lote 18, Quadra F, Rua Ipê Amarelo, Goiânia/GO",,,,,,,102.334,,02/04/2025,"Paulo Sérgio Reis, CREA 12345/D-GO",[],laudo_04.txt,sucesso
+,,,,,,,,,,,João A. Farias,['Não foi apontada hipoteca no ônus do imóvel.'],laudo_05.txt,sucesso
+Apartamento,"Rua das Palmeiras, 1.210",,,,,,,9.876,,,"Fernanda Lins, CREA 18001/PE",['Não consta informação sobre ônus.'],laudo_06.txt,sucesso
+Casa geminada,"Rua Azul, 33",,,neto informado pelo proprietário,neto informado pelo proprietário,neto informado pelo proprietário,math.nan,66.504,penhora averbada,,,"['Há penhora averbada, conforme documento consultado em 20/04/2025.']",laudo_07.txt,sucesso
+loja_térrea_com_sobreloja,"Rua Sete de Setembro, 410, Salvador/BA",,,,neto_texto_118_m²,neto_ano_2005,neto_valor_910_000_00,,não foi possível verificar por ausência de certidão.,29/04/2025,Luciana Prado - CNAI 12345,[],laudo_08.txt,sucesso
+Casa residencial,"Alameda das Flores 88, Florianópolis/SC",,,,,,,12.909,,,,"[""O campo 'Área do lote' e 'Área construída' não foram preenchidos no laudo.""]",laudo_09.txt,sucesso
+apartamento,"Condomínio Parque Norte, Brasília/DF",,,,,,,201.443,,,,['Gravame: alienação fiduciária mencionada na matrícula'],laudo_10.txt,sucesso
+,,,,,,,,,,,"Marcos Vieira, Eng. Civil, CREA-SP 5099988776",['Ônus reais não informados'],laudo_11.txt,sucesso
+casa de alto padrão,"Rua das Bromélias, 500, Lago Sul, Brasília - DF",,,,neto_texto,,neto_texto,neto_texto,servidão de passagem registrada,23/05/2025,"Arq. Andréa Melo, CAU A445566-1",[],laudo_12.txt,sucesso
+,,,,,"112,00m²",1987,"1.320.000,00",145.230,penhora cancelada,,,['O documento não informa a data do cancelamento da penhora.'],laudo_13.txt,sucesso
+galpão industrial,"Rodovia BR-116, km 12, Betim/MG",,,,,,,70.008,,05/06/2025,"Sérgio Tavares, CREA-MG 998877",[],laudo_14.txt,sucesso
+casa,"Rua Monte Verde, 19",,,,,,,39.240,,,,['A certidão consultada informa hipoteca ativa.'],laudo_15.txt,sucesso
+,,"42,00 m²","67,00 m²",,,,,,,19/06/2025,"Guilherme Rocha, CREA-SP 501010",['Ônus: sem informação'],laudo_16.txt,sucesso
+,,70 m²,,,,2015,"R$ 610.000,00",176.543,,,,['Divergência entre área total (95 m²) e área privativa (92 m²) no documento.'],laudo_17.txt,sucesso
