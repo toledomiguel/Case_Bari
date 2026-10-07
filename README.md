@@ -27,6 +27,10 @@ Case_Bari/
 ├── README.md
 └── DIARIO.md
 
+Como clonar o repositório:
+comando:
+git clone https://github.com/toledomiguel/Case_Bari.git
+cd Case_Bari
 
 Como criar e ativar o ambiente virtual: 
 comando:
